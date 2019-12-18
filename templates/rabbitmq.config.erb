@@ -31,6 +31,9 @@ end
     {cluster_nodes, {[<%= @cluster_nodes.map { |n| "\'rabbit@#{n}\'" }.join(', ') %>], <%= @cluster_node_type %>}},
     {cluster_partition_handling, <%= @cluster_partition_handling %>},
 <% end -%>
+<% if @config_cluster_formation -%>
+    [{cluster_formation, <%= @config_cluster_formation %>}]
+<% end -%>
     {tcp_listen_options, [
          <%- unless @config_ranch -%>
          binary,

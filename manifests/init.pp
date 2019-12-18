@@ -79,6 +79,13 @@
 #     wipe_db_on_cookie_change => true,
 #   }
 #
+# @example Use RabbitMQ cluster formation and peer discovery
+#   class { 'rabbitmq':
+#     config_cluster_formation => '[{peer_discovery_consul}],
+#     erlang_cookie            => 'A_SECRET_COOKIE_STRING',
+#     wipe_db_on_cookie_change => true,
+#   }
+#
 # @param admin_enable
 #   If enabled sets up the management interface/plugin for RabbitMQ.
 #   This also install the rabbitmqadmin command line tool.
@@ -306,6 +313,7 @@ class rabbitmq(
   Array $cluster_nodes                                                                             = [],
   String $config                                                                                   = 'rabbitmq/rabbitmq.config.erb',
   Boolean $config_cluster                                                                          = false,
+  Optional[String] $config_cluster_formation                                                       = undef,
   Stdlib::Absolutepath $config_path                                                                = '/etc/rabbitmq/rabbitmq.config',
   Boolean $config_ranch                                                                            = true,
   Boolean $config_stomp                                                                            = false,

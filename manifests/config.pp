@@ -11,6 +11,7 @@ class rabbitmq::config {
   $cluster_nodes                       = $rabbitmq::cluster_nodes
   $config                              = $rabbitmq::config
   $config_cluster                      = $rabbitmq::config_cluster
+  $config_cluster_formation            = $rabbitmq::config_cluster_formation
   $config_path                         = $rabbitmq::config_path
   $config_ranch                        = $rabbitmq::config_ranch
   $config_stomp                        = $rabbitmq::config_stomp
